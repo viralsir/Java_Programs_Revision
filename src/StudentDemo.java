@@ -19,11 +19,19 @@ public class StudentDemo
 
         }while(maths<0 ||  maths>100);
 
+        int science=0;
+        do {
+            System.out.println("Enter Science Marks(0-100):");
+            science=scanner.nextInt();
 
-        System.out.println("Enter Science Marks:");
-        int science=scanner.nextInt();
-        System.out.println("Enter English Marks:");
-        int english=scanner.nextInt();
+        }while(science<0 ||  science>100);
+
+        int english=0;
+        do
+        {
+            System.out.println("Enter English Marks(0-100):");
+            english=scanner.nextInt();
+        }while(english<0 || english>100);
 
 
         System.out.println("\n\n output :");
