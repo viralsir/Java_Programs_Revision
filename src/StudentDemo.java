@@ -13,7 +13,7 @@ public class StudentDemo
 
         System.out.println("Enter Maths Marks:");
         int maths=scanner.nextInt(); //-22
-        if(maths<0 ||  maths>100)
+        while(maths<0 ||  maths>100)
         {
             System.out.println("invalid maths marks ");
             System.out.println("Enter Maths Marks:");
