@@ -10,16 +10,15 @@ public class StudentDemo
         int rollno=scanner.nextInt();
         System.out.println("Enter Student Name :");
         String name=scanner.next();
-
-        System.out.println("Enter Maths Marks:");
-        int maths=scanner.nextInt(); //-22
-        while(maths<0 ||  maths>100)
+        int maths=0;
+        do
         {
-            System.out.println("invalid maths marks ");
-            System.out.println("Enter Maths Marks:");
+
+            System.out.println("Enter Maths Marks (0-100):");
             maths=scanner.nextInt(); //-22
 
-        }
+        }while(maths<0 ||  maths>100);
+
 
         System.out.println("Enter Science Marks:");
         int science=scanner.nextInt();
