@@ -1,10 +1,38 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class StudentDemo
+class Student
 {
+    int rollno;
+    String name;
+    int maths;
+    int science;
+    int english;
 
-   static  int validatemarks(String subject)
+
+     void entry()
+     {
+         Scanner scanner=new Scanner(System.in);
+         System.out.println("Enter Student Roll No:");
+             rollno=scanner.nextInt();
+             System.out.println("Enter Student Name :");
+             name=scanner.next();
+             maths=validatemarks("Maths");
+             science=validatemarks("Science");
+             english=validatemarks("English");
+     }
+
+     void view()
+     {
+         System.out.println("Roll No:"+rollno);
+         System.out.println("Name :"+ name);
+         System.out.println("Maths :"+ maths);
+         System.out.println("Science :"+ science);
+         System.out.println("English :"+ english);
+
+     }
+
+    static  int validatemarks(String subject)
     {
         Scanner scanner=new Scanner(System.in);
         int marks=0;
@@ -15,6 +43,15 @@ public class StudentDemo
         return marks;
     }
 
+
+}
+
+
+
+public class StudentDemo
+{
+
+
     static boolean  isPositive(int no)
     {
         if(no>0)
@@ -23,26 +60,10 @@ public class StudentDemo
             return false;
     }
 
-
-
     public static void main(String[] args)
     {
 
-        /*'
-            ArrayList    : dynamic  , all data type
-            LinkedList
-            List
-            HashTable
-            HashMap
-
-         */
-
-        ArrayList <Integer>rollnolist=new ArrayList<Integer>();
-        ArrayList <Integer>mathslist=new ArrayList<Integer>();
-        ArrayList <Integer>sciencelist=new ArrayList<Integer>();
-        ArrayList <Integer>englishlist=new ArrayList<Integer>();
-        ArrayList <String>namelist=new ArrayList<String>();
-
+          ArrayList<Student> studentlist=new ArrayList<Student>();
 
 
         //rollno[0] , rollno[1] , rollno[2] , ---- rollno[n-1]
@@ -64,24 +85,10 @@ public class StudentDemo
                 case 1:
                     do
                     {
+                            Student s1=new Student();
+                            s1.entry();
+                            studentlist.add(s1);
 
-                        do {
-                            System.out.println("Enter Student Roll No:");
-                            rollnolist.add(scanner.nextInt());
-
-                        } while (!isPositive(rollnolist.get(i)));
-
-
-                        System.out.println("Enter Student Name :");
-                        namelist.add(scanner.next());
-
-                        //int maths=0;
-                        mathslist.add(validatemarks("Maths"));
-
-                        sciencelist.add(validatemarks("Science"));
-
-                        englishlist.add(validatemarks("English"));
-                        i++;
                         System.out.println("Do you want to continue(y/n)?:");
                         option2=scanner.next();
                     }while(option2.equalsIgnoreCase("y"));
@@ -90,15 +97,9 @@ public class StudentDemo
                     System.out.println("\n\n output :");
 
 
-                    for (int j = 0; j < rollnolist.size(); j++)
+                    for (Student s1:studentlist)
                     {
-
-                        System.out.println("============ Student -"+ (j+1) + "==================");
-                        System.out.println("Roll No:"+rollnolist.get(j));
-                        System.out.println("Name :"+namelist.get(j));
-                        System.out.println("Maths :"+mathslist.get(j));
-                        System.out.println("Science :"+sciencelist.get(j));
-                        System.out.println("English :"+englishlist.get(j));
+                        s1.view();
 
                     }
 
